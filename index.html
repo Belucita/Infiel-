@@ -12,8 +12,8 @@
             margin-top: 50px;
         }
         
-        /* Estilo para ocultar el segundo y tercer contenido */
-        #contenido2, #contenido3 {
+        /* Estilo para ocultar los contenidos */
+        #contenido2, #contenido3, #mensaje {
             display: none;
         }
 
@@ -76,21 +76,44 @@
         </div>
     </div>
 
+    <!-- Mensaje final dependiendo de la respuesta -->
+    <div id="mensaje">
+        <p id="mensajeTexto"></p>
+    </div>
+
     <script>
         // Función que oculta el primer contenido y muestra el segundo con el nombre ingresado
         function mostrarPregunta() {
             var nombre = document.getElementById("nombre").value;
             if (nombre) {
-                document.getElementById("contenido1").style.display = "none";
-                document.getElementById("contenido2").style.display = "block";
-                document.getElementById("nombreUsuario").textContent = nombre;
+                document.getElementById("contenido1").style.display = "none"; // Oculta contenido1
+                document.getElementById("contenido2").style.display = "block"; // Muestra contenido2
+
                 setTimeout(function() {
-                    document.getElementById("contenido2").style.display = "none"; // Oculta el segundo contenido
-                    document.getElementById("contenido3").style.display = "block"; // Muestra el tercer contenido
-                }, 3000); // Espera 3 segundos antes de mostrar la siguiente pregunta
+                    document.getElementById("contenido2").style.display = "none"; // Oculta contenido2
+                    document.getElementById("contenido3").style.display = "block"; // Muestra contenido3
+                }, 2000); // Espera 3 segundos antes de mostrar la siguiente pregunta
             } else {
                 alert("Identifiquese: ");
             }
+        }
+
+        // Función que maneja la respuesta (Sí o No)
+        function respuesta(opcion) {
+            document.getElementById("contenido3").style.display = "none"; // Oculta contenido3
+
+            // Muestra el mensaje dependiendo de la respuesta
+            var mensaje = document.getElementById("mensaje");
+            var mensajeTexto = document.getElementById("mensajeTexto");
+
+            if (opcion === "Sí") {
+                mensajeTexto.textContent = "Eso creí.";
+            } else {
+                mensajeTexto.textContent = "¿Estás seguro?";
+            }
+
+            // Muestra el mensaje final
+            mensaje.style.display = "block";
         }
     </script>
 
