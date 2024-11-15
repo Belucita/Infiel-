@@ -17,20 +17,18 @@
             display: none;
         }
 
-        /* Estilo para el cuadro rojo más pequeño y centrado */
+        /* Estilo para el cuadro rojo */
         #pregunta {
             background-color: red;
             color: white;
             padding: 20px;
-            width: 50%; /* Ancho del recuadro rojo */
-            margin: 30px auto; /* Centrado del recuadro */
+            margin-top: 30px;
             border-radius: 8px;
-            text-align: center; /* Centrado del texto */
         }
 
         /* Estilo para las imágenes a los costados */
         .imagenes {
-            width: 200px; /* Aumentar el tamaño de las imágenes */
+            width: 100px;
             margin: 10px;
         }
 
@@ -61,6 +59,7 @@
     <!-- Imagen con texto que aparecerá después -->
     <div id="contenido2">
         <img src="https://i.pinimg.com/736x/07/02/55/070255710a48c861176bd7989f9b8367.jpg" alt="Imagen" width="400">
+        <p> <span id="nombreUsuario"></span>!</p>
     </div>
 
     <!-- Pregunta con las opciones Sí/No y las imágenes a los costados -->
@@ -85,8 +84,8 @@
                 document.getElementById("contenido2").style.display = "block";
                 document.getElementById("nombreUsuario").textContent = nombre;
                 setTimeout(function() {
-                    document.getElementById("contenido2").style.display = "none"; // Oculta el segundo contenido
-                    document.getElementById("contenido3").style.display = "block"; // Muestra el tercer contenido
+                    document.getElementById("contenido2").style.display = "none";
+                    document.getElementById("contenido3").style.display = "block";
                 }, 3000); // Espera 3 segundos antes de mostrar la siguiente pregunta
             } else {
                 alert("Identifiquese: ");
@@ -96,7 +95,7 @@
         // Función que maneja la respuesta (Sí o No)
         function respuesta(opcion) {
             alert("Has respondido: " + opcion);
-            
+            // Aquí puedes agregar lo que desees hacer con la respuesta
         }
     </script>
 
